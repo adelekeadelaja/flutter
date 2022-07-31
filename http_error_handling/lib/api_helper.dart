@@ -18,7 +18,7 @@ class ApiHelper {
 
       responseJson = _returnRespone(response);
     } on SocketException {
-      throw ApiRequestException('No internet connection');
+      throw GetDataException('No internet connection');
     }
 
     return responseJson;
@@ -36,7 +36,7 @@ class ApiHelper {
         throw UnauthorizedException(response.body);
       case 500:
       default:
-        throw ApiRequestException('Request failed on remote server.'
+        throw GetDataException('Request failed on remote server.'
             '\r\nStatus code: ${response.statusCode}'
             '\r\nReason phrase: ${response.reasonPhrase}');
     }

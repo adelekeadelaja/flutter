@@ -10,8 +10,8 @@ class AppException implements Exception {
   }
 }
 
-class ApiRequestException extends AppException {
-  ApiRequestException([message]) : super(message, 'Response Error');
+class GetDataException extends AppException {
+  GetDataException([message]) : super(message, 'Response Error');
 }
 
 class BadRequestException extends AppException {
