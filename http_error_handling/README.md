@@ -24,7 +24,7 @@ This project is a basic Flutter project broken down into the following folders.
 
 - lib/repository
 
-    Contains an abstract class or interface (`repository.dart`)) which defines the methods that derived classes (`todo_repository.dart`) must define concrete implementations for.
+    Contains an abstract class or interface (_`repository.dart`_) which defines the methods that derived classes (e.g. _`todo_repository.dart`_) must define concrete implementations for.
 
 - lib/screens
 
