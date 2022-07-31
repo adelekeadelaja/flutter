@@ -20,7 +20,7 @@ This project is a basic Flutter project broken down into the following folders.
 
 - lib/providers
 
-    State management is handled by the repository provider.
+    State management is handled by the repository provider. In this example, I used a provider that extends the `ChangeNotifier`, however you could achieve the same result using a `ValueNotifier` approach by registering a `ListenableNotifier` in _`main.dart`_, introducing `ValueListenableBuilder` in _`main_screen.dart`_, and refactor the _`lib/providers/repository_provider.dart`_ to expose a `ValueNotifier` on _ApiResponse_ object. You may read more on the difference between _ChangeNotifier_ and _ValueNotifier_.
 
 - lib/repository
 
