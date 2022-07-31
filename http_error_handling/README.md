@@ -1,16 +1,31 @@
 # http_error_handling
 
-A new Flutter project.
+In this project, I cover how to handle http request errors like a pro. In addition, you would learn some coding best practices in dart such as use of abstract classes and interfaces and how to maintain SOLID principles in general. 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a basic Flutter project broken down into the following folders.
 
-A few resources to get you started if this is your first Flutter project:
+- main.dart
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+    this is the main entry of the application and contains a simple `main()` method.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- lib/exception
+
+    contains the custom exception classes used in the app.
+
+- lib/models
+
+    contains data models and an API Response helper which holds a specific type of data based on the outcome of API requests.
+
+- lib/providers
+
+    State management is handled by the repository provider.
+
+- lib/repository
+
+    Contains an abstract class or interface (`repository.dart`)) which defines the methods that derived classes (`todo_repository.dart`) must define concrete implementations for.
+
+- lib/screens
+
+    This contains the default screen of the app and shows how the provider is consumed to demonstrate how to handle errors in the app.
