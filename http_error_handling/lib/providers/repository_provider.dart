@@ -17,7 +17,7 @@ class RepositoryProvider extends ChangeNotifier {
 
   void fetchData() async {
     if (_repository != null) {
-      response = ApiResponse.loading('Fetching data...');
+      response = ApiResponse.started('Fetching data...');
       notifyListeners();
 
       try {

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_error_handling/exception/app_exception.dart';
+import 'package:http_error_handling/exception/app_exceptions.dart';
 
 class ApiHelper {
   final String _baseUrl = 'https://jsonplaceholder.typicode.com/';
@@ -18,7 +18,7 @@ class ApiHelper {
 
       responseJson = _returnRespone(response);
     } on SocketException {
-      throw FetchDataException('No internet connection');
+      throw ApiRequestException('No internet connection');
     }
 
     return responseJson;
@@ -36,7 +36,7 @@ class ApiHelper {
         throw UnauthorizedException(response.body);
       case 500:
       default:
-        throw FetchDataException('Request failed on remote server. '
+        throw ApiRequestException('Request failed on remote server. '
             '\r\nStatus code: ${response.statusCode}'
             '\r\nReason phrase: ${response.reasonPhrase}');
     }

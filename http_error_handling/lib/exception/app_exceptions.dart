@@ -10,9 +10,8 @@ class AppException implements Exception {
   }
 }
 
-class FetchDataException extends AppException {
-  FetchDataException([message])
-      : super(message, 'Error during communication');
+class ApiRequestException extends AppException {
+  ApiRequestException([message]) : super(message, 'Response Error');
 }
 
 class BadRequestException extends AppException {
@@ -20,5 +19,5 @@ class BadRequestException extends AppException {
 }
 
 class UnauthorizedException extends AppException {
-  UnauthorizedException([message]) : super(message, 'Unauthorised');
+  UnauthorizedException([message]) : super(message, 'Unauthorized');
 }

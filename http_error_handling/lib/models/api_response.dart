@@ -6,23 +6,23 @@ class ApiResponse<T> {
   /// Default constructor
   ApiResponse();
 
-  /// [ApiResponse.loading] named constructor.
-  ApiResponse.loading(this.message) : status = Status.loading;
-  
+  /// [ApiResponse.started] named constructor.
+  ApiResponse.started(this.message) : status = Status.started;
+
   /// [ApiResponse.completed] named constructor.
   ApiResponse.completed(this.data) : status = Status.completed;
-  
+
   /// [ApiResponse.error] named constructor.
   ApiResponse.error(this.message) : status = Status.error;
 
   @override
   String toString() {
-    return 'Status: $status \n Message: $message \n Data: $data';
+    return 'Status: $status \r\n Message: $message \r\n Data: $data';
   }
 }
 
 enum Status {
-  loading,
+  started,
   completed,
   error,
 }
