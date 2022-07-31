@@ -36,7 +36,7 @@ class ApiHelper {
         throw UnauthorizedException(response.body);
       case 500:
       default:
-        throw ApiRequestException('Request failed on remote server. '
+        throw ApiRequestException('Request failed on remote server.'
             '\r\nStatus code: ${response.statusCode}'
             '\r\nReason phrase: ${response.reasonPhrase}');
     }
