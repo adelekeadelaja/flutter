@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http_error_handling/models/photo.dart';
+import 'package:http_error_handling/models/todo.dart';
 import 'package:http_error_handling/providers/repository_provider.dart';
 import 'package:http_error_handling/screens/main_screen.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +9,9 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => RepositoryProvider()),
+        ChangeNotifierProvider(
+            create: (context) => RepositoryProvider<Photo>()),
+        ChangeNotifierProvider(create: (context) => RepositoryProvider<Todo>()),
       ],
       child: const MyApp(),
     ),

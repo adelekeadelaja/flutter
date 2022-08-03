@@ -1,5 +1,10 @@
-class TodoSearch {
+import 'package:http_error_handling/models/search.dart';
+
+class TodoSearch implements Search<Todo> {
+  @override
   late int id;
+
+  @override
   late List<Todo> data;
 
   TodoSearch.fromJson(List<dynamic>? json) {

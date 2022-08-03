@@ -1,13 +1,17 @@
 class AppException implements Exception {
-  AppException([this._message, this._prefix]);
+  AppException([this.message, this.prefix]);
 
-  final String? _message;
-  final String? _prefix;
+  final String? message;
+  final String? prefix;
 
   @override
   String toString() {
-    return '$_prefix: $_message';
+    return '$prefix: $message';
   }
+}
+
+class AccessDeniedException extends AppException {
+  AccessDeniedException([message]) : super(message, 'Forbiden');
 }
 
 class GetDataException extends AppException {

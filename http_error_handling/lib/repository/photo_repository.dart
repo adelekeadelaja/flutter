@@ -1,15 +1,15 @@
 import 'dart:math';
 
 import 'package:http_error_handling/api_helper.dart';
-import 'package:http_error_handling/models/todo.dart';
+import 'package:http_error_handling/models/photo.dart';
 import 'package:http_error_handling/repository/repository.dart';
 
-class TodoRepository implements Repository<Todo> {
+class PhotoRepository implements Repository<Photo> {
   final ApiHelper _apiHelper = ApiHelper();
-  final String url = 'todos';
+  final String url = 'photos';
 
   @override
-  Future<Todo> create(model) {
+  Future<Photo> create(model) {
     // TODO: implement create
     throw UnimplementedError();
   }
@@ -21,24 +21,24 @@ class TodoRepository implements Repository<Todo> {
   }
 
   @override
-  Future<Todo> get() async {
-    final id = Random().nextInt(300) + 1;
+  Future<Photo> get() async {
+    final id = Random().nextInt(200) + 1;
 
     final response = await _apiHelper.get('$url/$id');
 
-    return Todo.fromJson(response);
+    return Photo.fromJson(response);
   }
 
   @override
-  Future<List<Todo>> search() async {
-    final userId = Random().nextInt(20) + 1;
-    final response = await _apiHelper.get('$url?userId=$userId');
+  Future<List<Photo>> search() async {
+    final albumId = Random().nextInt(200) + 1;
+    final response = await _apiHelper.get('$url?albumId=$albumId');
 
-    return TodoSearch.fromJson(response).data;
+    return PhotoSearch.fromJson(response).data;
   }
 
   @override
-  Future<Todo> update(model) {
+  Future<Photo> update(model) {
     // TODO: implement update
     throw UnimplementedError();
   }
