@@ -50,16 +50,36 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Column(
+      body: Row(
         children: [
-          if (responseTodo.status == Status.completed)
-            Container(
-              margin: const EdgeInsets.all(8.0),
-              child: Text(responseTodo.status.toString()),
-            ),
+          Flexible(
+            fit: FlexFit.tight,
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(8.0),
+                  child: Text('Photo: ${responsePhoto.toString()}'),
+                ),
 
-          // list of data
-          if (responseTodo.data != null) todoListView(responseTodo.data)
+                // lists of photo
+                if (responsePhoto.data != null) photoView(responsePhoto.data)
+              ],
+            ),
+          ),
+          Flexible(
+            fit: FlexFit.tight,
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(8.0),
+                  child: Text('Todo: ${responseTodo.toString()}'),
+                ),
+
+                // lists of todo
+                if (responseTodo.data != null) todoListView(responseTodo.data)
+              ],
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -73,8 +93,35 @@ class MainScreen extends StatelessWidget {
     );
   }
 
+  Widget photoView(Photo photo) {
+    return Container(
+      margin: EdgeInsets.zero,
+      child: ListTile(
+        autofocus: true,
+        leading: Text(photo.id.toString()),
+        title: RichText(
+          text: TextSpan(
+            style: const TextStyle(color: Colors.black),
+            children: [
+              TextSpan(
+                text: '${photo.albumId} >> ',
+                style: const TextStyle(color: Colors.orange),
+              ),
+              TextSpan(text: photo.title),
+              TextSpan(
+                text: ' >> ${photo.thumbnailUrl}',
+                style: const TextStyle(color: Colors.blue),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget todoListView(List<Todo> todos) {
-    return Expanded(
+    return Container(
+      constraints: const BoxConstraints(maxHeight: 400),
       child: ListView.builder(
         itemCount: todos.length,
         itemBuilder: (context, index) {
